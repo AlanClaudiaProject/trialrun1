@@ -11,17 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
  * Basic Spring web service controller that handles all GET requests.
  */
 @RestController
+@RequestMapping("/")
 public class HelloWorldController {
 
     private static final String MESSAGE_FORMAT = "Hello %s!";
 
-    @RequestMapping("/", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(path = 'test1', method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World1") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
 
-    @RequestMapping("/", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(path = 'test1', method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World2") String name) {
+        return ResponseEntity.ok(createResponse(name));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity helloWorldGet1(@RequestParam(value = "name", defaultValue = "World11") String name) {
+        return ResponseEntity.ok(createResponse(name));
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity helloWorldPost1(@RequestParam(value = "name", defaultValue = "World22") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
 
