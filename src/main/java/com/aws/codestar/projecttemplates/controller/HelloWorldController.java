@@ -30,15 +30,6 @@ public class HelloWorldController {
         return ResponseEntity.ok(createResponse(name));
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity helloWorldGet1(@RequestParam(value = "name", defaultValue = "World11") String name) {
-        return ResponseEntity.ok(createResponse(name));
-    }
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity helloWorldPost1(@RequestParam(value = "name", defaultValue = "World22") String name) {
-        return ResponseEntity.ok(createResponse(name));
-    }
 
     private String createResponse(String name) {
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
@@ -46,5 +37,6 @@ public class HelloWorldController {
 
     private void logServerInfo() {
         logger.info("test");
+        System.out.println("test2");
     }
 }
