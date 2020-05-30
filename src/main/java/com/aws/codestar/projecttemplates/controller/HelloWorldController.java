@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
     private static final String MESSAGE_FORMAT = "Hello %s!";
-    private static Logger logger = Logger.getLogger(HelloWorldController.class);
+    private static Logger logger = Logger.getLogger(HelloWorldController.class.getName());
 
     @RequestMapping(path = "/test1", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World1") String name) {
