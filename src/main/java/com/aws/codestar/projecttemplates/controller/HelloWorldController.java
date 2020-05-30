@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
     private static final String MESSAGE_FORMAT = "Hello %s!";
-    private static Logger logger = Logger.getLogger(HelloWorldController.class.getName());
+    static Logger logger = Logger.getLogger(HelloWorldController.class.getName());
 
-    @RequestMapping(path = "/test1", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World1") String name) {
         logServerInfo();
         return ResponseEntity.ok(createResponse(name));
     }
 
-    @RequestMapping(path = "/test2", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World2") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
@@ -35,8 +35,9 @@ public class HelloWorldController {
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
     }
 
-    private void logServerInfo() {
+    private static void logServerInfo() {
         logger.info("test");
-        System.out.println("test2");
+        System.out.println("test2"); //went to /opt/tomcat/logs/catalina.out
+
     }
 }

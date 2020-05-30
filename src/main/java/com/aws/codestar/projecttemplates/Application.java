@@ -20,6 +20,8 @@ public class Application extends SpringBootServletInitializer {
         log.debug("Hello this is a debug message");
         log.info("Hello this is an info message");
         SpringApplication.run(Application.class, args);
+        log.debug("Hello this is a debug message");
+        log.info("Hello this is an info message");
     }
 
 }
