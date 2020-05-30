@@ -42,7 +42,8 @@ public class HelloWorldController {
         logger.info("test");
         System.out.println("starting db connection");
         try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+        //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String dbName = System.getenv("RDS_DB_NAME");
         String userName = System.getenv("RDS_USERNAME");
         String password = System.getenv("RDS_PASSWORD");
