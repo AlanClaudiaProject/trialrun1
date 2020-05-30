@@ -40,7 +40,7 @@ public class HelloWorldController {
 
     private void logServerInfo() {
         logger.info("test");
-        System.out.println("starting db connection");
+        System.out.println("logServerInfo starting db connection");
         try {
         DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
         //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -51,15 +51,15 @@ public class HelloWorldController {
         String port = System.getenv("RDS_PORT");
         String jdbcUrl = "jdbc:sqlserver://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
         logger.trace("Getting remote connection with connection string from environment variables.");
-        System.out.println("dbName > "+dbName);
-        System.out.println("userName > "+userName);
-        System.out.println("password > "+password);
-        System.out.println("hostname > "+hostname);
-        System.out.println("port > "+port);
-        System.out.println("jdbcUrl > "+jdbcUrl);
-        System.out.println("connecting");
+        System.out.println("logServerInfo dbName > "+dbName);
+        System.out.println("logServerInfo userName > "+userName);
+        System.out.println("logServerInfo password > "+password);
+        System.out.println("logServerInfo hostname > "+hostname);
+        System.out.println("logServerInfo port > "+port);
+        System.out.println("logServerInfo jdbcUrl > "+jdbcUrl);
+        System.out.println("logServerInfo connecting");
         Connection con = DriverManager.getConnection(jdbcUrl);
-        System.out.println("connected");
+        System.out.println("logServerInfo connected");
         logger.info("Remote connection successful.");
         }
         catch (ClassNotFoundException e) { 
