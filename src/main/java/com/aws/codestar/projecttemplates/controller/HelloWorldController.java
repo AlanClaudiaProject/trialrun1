@@ -84,11 +84,11 @@ public class HelloWorldController {
         logger.info("Remote connection successful.");
         }
        catch (ClassNotFoundException e) { 
-           System.out.println("logServerInfo class error");
+           System.out.println("logServerInfo class error > " + e.toString());
            logger.warn(e.toString());
        }
         catch (SQLException e) { 
-            System.out.println("logServerInfo sql error");
+            System.out.println("logServerInfo sql error > " + e.toString());
             logger.warn(e.toString());
         }
     }
