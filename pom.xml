@@ -60,7 +60,8 @@
         <dependency>
         <groupId>com.microsoft.sqlserver</groupId>
         <artifactId>mssql-jdbc</artifactId>
-        <version>8.2.2.jre13</version>
+        <version>8.2.2.jre8</version>
+        <!-- need to use this java-8-openjdk-->
         </dependency>
     </dependencies>
 
