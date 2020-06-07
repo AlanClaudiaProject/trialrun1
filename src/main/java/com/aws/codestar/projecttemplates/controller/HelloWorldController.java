@@ -43,12 +43,33 @@ public class HelloWorldController {
         System.out.println("logServerInfo starting db connection");
         try {
         DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-        //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Class test = Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        System.out.println(test);
         String dbName = System.getenv("RDS_DB_NAME");
         String userName = System.getenv("RDS_USERNAME");
         String password = System.getenv("RDS_PASSWORD");
         String hostname = System.getenv("RDS_HOSTNAME");
         String port = System.getenv("RDS_PORT");
+        System.out.println("logServerInfo dbName > "+dbName);
+        System.out.println("logServerInfo userName > "+userName);
+        System.out.println("logServerInfo password > "+password);
+        System.out.println("logServerInfo hostname > "+hostname);
+        System.out.println("logServerInfo port > "+port);
+        dbName += System.getProperty("RDS_DB_NAME");
+        userName += System.getProperty("RDS_USERNAME");
+        password += System.getProperty("RDS_PASSWORD");
+        hostname += System.getProperty("RDS_HOSTNAME");
+        port += System.getProperty("RDS_PORT");
+        System.out.println("logServerInfo dbName > "+dbName);
+        System.out.println("logServerInfo userName > "+userName);
+        System.out.println("logServerInfo password > "+password);
+        System.out.println("logServerInfo hostname > "+hostname);
+        System.out.println("logServerInfo port > "+port);
+        dbName = "trialrun1";
+        userName = "admin";
+        password = "Clau.266";
+        hostname = "trialrun1.cqslbggdmkng.ap-southeast-1.rds.amazonaws.com";
+        port = "1433";
         String jdbcUrl = "jdbc:sqlserver://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
         logger.trace("Getting remote connection with connection string from environment variables.");
         System.out.println("logServerInfo dbName > "+dbName);
@@ -62,10 +83,10 @@ public class HelloWorldController {
         System.out.println("logServerInfo connected");
         logger.info("Remote connection successful.");
         }
-//        catch (ClassNotFoundException e) { 
-//            System.out.println("logServerInfo class error");
-//            logger.warn(e.toString());
-//        }
+       catch (ClassNotFoundException e) { 
+           System.out.println("logServerInfo class error");
+           logger.warn(e.toString());
+       }
         catch (SQLException e) { 
             System.out.println("logServerInfo sql error");
             logger.warn(e.toString());
