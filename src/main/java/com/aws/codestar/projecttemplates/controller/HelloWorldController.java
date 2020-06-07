@@ -70,7 +70,7 @@ public class HelloWorldController {
         password = "Clau.266";
         hostname = "trialrun1.cqslbggdmkng.ap-southeast-1.rds.amazonaws.com";
         port = "1433";
-        String jdbcUrl = "jdbc:sqlserver://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
+        String jdbcUrl = "jdbc:sqlserver://" + hostname + ":" + port + "?databaseName=" + dbName + "&user=" + userName + "&password=" + password;
         //String jdbcUrl = "jdbc:sqlserver://" + hostname + "\\" + dbName + "?user=" + userName + "&password=" + password;
         logger.trace("Getting remote connection with connection string from environment variables.");
         System.out.println("logServerInfo dbName > "+dbName);
